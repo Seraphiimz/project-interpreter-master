@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import {from, Observable } from 'rxjs';
 import{Interpreter_user} from "../shared/model/interpreter_user";
 import {map} from 'rxjs/operators';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  DocumentChangeAction
+}from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +14,7 @@ import {map} from 'rxjs/operators';
 export class InterpreterFirestoreService {
   private interpretersCollection: AngularFirestoreCollection<Interpreter_user>;
 
-  colecaoInterprete: AngularFirestoreCollection<Interpreter_user>;
+  colecaoInterprete!: AngularFirestoreCollection<Interpreter_user>;
   NOME_COLECAO = 'interpretes';
 
   constructor(private firestore: AngularFirestore) {
@@ -23,7 +27,7 @@ export class InterpreterFirestoreService {
   remover(id: string): Observable<void> {
     return from(this.colecaoInterprete.doc(id).delete());
   }
-
+}
 
 
 
