@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import {Interpreter_user} from "../../shared/model/interpreter_user";
 import {InterpreterService} from "../../services/interpreter.service";
+import {InterpreterFirestoreService} from "../../services/interpreter-firestore.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -14,24 +16,23 @@ export class ListasInterpreterComponent {
   interpretes: Interpreter_user[] = [];
   matricula_interpreter: string = "";
   pesquisados_interpreter: Interpreter_user[] = [];
+  interpretess: Observable<Interpreter_user[]>;
+
 
 
   constructor(
     private interprete_service: InterpreterService,
     private roteador: Router,
-    private dialog: MatDialog){}
+    private interpreteService: InterpreterFirestoreService,
+    private dialog: MatDialog){
+    this.interpretess = interpreteService.listar();
+  }
 
-  remover(interprete_remover: Interpreter_user): void {
-    this.interprete_service.remover(interprete_remover).subscribe( interpreteRemover => {
-        console.log('Interprete removido');
-        const indxARemover = this.interpretes.findIndex(interpreter =>
-          interpreter.matricula === interpreteRemover.matricula);
-
-        if (indxARemover >= 0) {
-          this.interpretes.splice(indxARemover, 1);
-        }
-      }
-    );
+  excluir(interpreteRemover: Interpreter_user): void{
+    if(interpreteRemover.id){
+      this.interpreteService.remover(interpreteRemover.id).subscribe(
+      );
+    }
   }
 
   pesquisar_interpreter() {
