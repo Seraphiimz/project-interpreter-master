@@ -1,6 +1,6 @@
 export class Interpreter_user{
 
-  id: string
+  id?: string
   nome: string
   matricula: string
   email: string
