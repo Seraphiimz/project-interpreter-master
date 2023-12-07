@@ -30,4 +30,8 @@ export class InterpreterService {
   listas_interpreter(): Observable<Interpreter_user[]>{
     return this.httpClient.get<Interpreter_user[]>(this.INTERPRETER_URL);
   }
+
+  inserir(interprete: Interpreter_user): Observable<Interpreter_user> {
+    return this.httpClient.post<Interpreter_user>(this.INTERPRETER_URL, interprete);
+  }
 }
