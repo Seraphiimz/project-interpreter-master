@@ -1,0 +1,112 @@
+<div class="container-header">
+  <div class="texto-img">
+    <p>Cloud Interpreter</p>
+    <img src="assets/logo.png">
+  </div>
+  <div class="a-icon">
+    <a href="#">
+      <mat-icon aria-hidden="false" aria-label="icon" fontIcon="recent_actors"></mat-icon>
+    </a>
+    <a (click)="openCadastroModal()">
+      <mat-icon aria-hidden="false" aria-label="icon" fontIcon="how_to_reg"></mat-icon>
+    </a>
+  </div>
+</div>
+<div class="main-interpreter">
+  <div class="container-text-img">
+    <div class="text-button-img">
+      <div class="texts">
+        <h1>
+          <strong>Busca</strong>
+          <br>Interprete<br>
+          <strong>de Libras</strong>
+          <br>para você!
+        </h1>
+      </div>
+      <div class="span-hs">
+        <span>24Hs disponíveis!</span>
+      </div>
+      <div class="button-search">
+        <button mat-raised-button color="accent">Busque</button>
+      </div>
+      <div class="img-libras">
+        <img src="assets/libras.png">
+      </div>
+    </div>
+  </div>
+  <mat-card class="example-card" *ngFor="let Interpreter_user of interpretes">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{Interpreter_user.nome | titlecase}}</mat-card-title>
+        <mat-card-subtitle>Matricula: {{Interpreter_user.matricula | matricula}}</mat-card-subtitle>
+        <mat-card-subtitle>Email: {{Interpreter_user.email}}</mat-card-subtitle>
+        <mat-card-subtitle>Turno: {{Interpreter_user.turno}}</mat-card-subtitle>
+        <mat-card-subtitle>Telefone: {{Interpreter_user.telefone}}</mat-card-subtitle>
+        <img mat-card-sm-image src="../../../assets/interpretes.jpg" >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-button-row">
+        <button mat-button color="accent">Editor</button>
+        <button mat-button color="warn" (click)="remover(Interpreter_user)">Excluir</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="main-profile-interpreter">
+    <div class="interpreter-online">
+      <h2>Interpretes na online</h2>
+      <div class="profile-interpreter">
+        <img class="img-profile" src="assets/semFoto.png">
+        <p>Listas</p>
+        <span>Click on seta</span>
+        <button (click)="abrirModal()">
+          <mat-icon aria-hidden="false" aria-label="icon" fontIcon="east"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="in-person-interpreter">
+    <h2>Interpretes para presencial</h2>
+    <div class="profile-interpreter" >
+      <img class="img-profile" src="assets/semFoto.png">
+      <p>Marcos</p>
+      <span>Manhã</span>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="east"></mat-icon>
+      </button>
+    </div>
+    <div class="profile-interpreter">
+      <img class="img-profile" src="assets/semFoto.png">
+      <p>Gustavo Wagner</p>
+      <span>Tarde</span>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="east"></mat-icon>
+      </button>
+    </div>
+    <div class="profile-interpreter">
+      <img class="img-profile" src="assets/semFoto.png">
+      <p>Alexson</p>
+      <span>Noite</span>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="east"></mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="app-interpreter">
+    <div class="app-text-img">
+      <p>Baixe de APP na Google</p><br>
+      <p>Play ou Store</p><br>
+      <span> fica mais facil usar na mobile pra chamar interpretes!</span>
+      <a href="https://play.google.com/store/apps/details?id=your.package.name">
+        <img src="assets/google-play.png" alt="Get it on Google Play">
+      </a>
+      <a href="https://apps.apple.com/your-app-id">
+        <img src="assets/app-store.png" alt="Download on the App Store">
+      </a>
+
+    </div>
+    <div>
+      <img src="">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/cadastro-interpreter']">Cadastrs interpreter</button>
+    <button mat-menu-item [routerLink]="['/listagem-interpreter']">Listar interpretes</button>
+  </mat-menu>
+</div>

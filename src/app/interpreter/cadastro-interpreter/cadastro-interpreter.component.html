@@ -1,0 +1,47 @@
+
+<h1>Cadastro Interpretes</h1>
+<div class="table-cadastr">
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="interpreterTratamento.nome" placeholder="Digitar seu nome">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Matricula</mat-label>
+      <input matInput [(ngModel)]="interpreterTratamento.matricula" placeholder="digitar sua matricula">
+    </mat-form-field></td>
+  </tr></table>
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [(ngModel)]="interpreterTratamento.email" placeholder="Ex. pat@example.com">
+    </mat-form-field>
+  </p>
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field>
+      <mat-label>Disponível</mat-label>
+      <select matNativeControl required >
+        <option label="Manhã"></option>
+        <option value="tarde">Tarde</option>
+        <option value="noite">Noite</option>
+        <option value="madrugada" >Madrugada</option>
+      </select></mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Telephone</mat-label>
+      <span matPrefix>+55 &nbsp;</span>
+      <input type="tel" matInput [(ngModel)]="interpreterTratamento.telefone" placeholder="ex: 00 0000-0000">
+    </mat-form-field></td>
+  </tr></table>
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field>
+        <mat-label>Horário</mat-label>
+        <input matInput placeholder="Ex: 1:00 - 5:00 ou 24h">
+      </mat-form-field></td>
+    <td><mat-chip-listbox aria-label="Fish selection">
+        <mat-chip-option>Presencial</mat-chip-option>
+        <mat-chip-option>Online</mat-chip-option>
+      </mat-chip-listbox></td>
+  </tr></table>
+</div>
+
+<button class="cadastr-button" mat-flat-button color="accent" (click)="cadastrar_interpreter()">{{botao}}</button>

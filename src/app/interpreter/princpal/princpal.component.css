@@ -1,0 +1,166 @@
+.container-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 50px;
+
+  & p{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 39px;
+    margin-left: 50px;
+  }
+
+  & img{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.texto-img{
+  display: flex;
+}
+
+.a-icon {
+  margin-top: 30px;
+
+  & a{
+    padding-right: 40px;
+    cursor: pointer;
+  }
+}
+
+.main-interpreter{
+  font-family: Optima, sans-serif;
+  font-size: 16px;
+}
+
+.container-text-img{
+  padding: 40px;
+}
+
+.text-button-img{
+  background-color: rgba(161, 161, 161, 1);
+  padding: 160px 100px;
+  border: 1px solid #a1a1a1;
+  border-radius: 30px;
+  position: relative;
+}
+
+.texts h1{
+  font-family: 'Montserrat-Regular', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.2;
+
+  & strong{
+    font-size: 48px;
+    font-weight: 800;
+    z-index: 1;
+    position: relative;
+
+    &::before{
+      content: "";
+      background: white;
+      width: 120%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      transform: translateX(-50%) rotate(2deg);
+      left: 50%;
+    }
+  }
+
+  & strong:nth-child(4) {
+    &::before {
+      background-color: #daa520;
+      transform: translateX(-50%) rotate(-2deg);
+    }
+  }
+}
+
+.span-hs{
+  font-size: 16px;
+}
+
+.button-search {
+  position: absolute;
+  margin: 10px 120px;
+}
+
+.img-libras img{
+  right: 0px;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.interpreter-online {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.in-person-interpreter{
+  background-color: #daa520;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.interpreter-online,
+.in-person-interpreter {
+  & h2 {
+    position: absolute;
+    left: 45px;
+    margin-top: 10px;
+  }
+}
+
+.profile-interpreter{
+  position: relative;
+  margin-top: 65px;
+  margin-bottom: 15px;
+
+  & button{
+    background: none;
+    border: none;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+.img-profile{
+  width: 300px;
+}
+
+p{
+  line-height: 0;
+  margin-top: 10px;
+}
+
+.app-interpreter{
+  padding: 280px 100px;
+
+  & p{
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  & span{
+    position: absolute;
+    margin-top: 10px;
+  }
+}
+
+.app-text-img{
+  display: block;
+  width: 40%;
+
+  & img{
+    margin-top: 35px;
+    width: 110px;
+  }
+}
