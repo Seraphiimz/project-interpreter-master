@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Interpreter_user} from "../../shared/model/interpreter_user";
-import {InterpreterService} from "../../services/interpreter.service";
+import {InterpreterFirestoreService} from "../../services/interpreter-firestore.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialogRef} from "@angular/material/dialog";
 
@@ -11,35 +11,37 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class CadastroInterpreterComponent {
 
-  readonly cadastrar = 'cadastrar';
-  interpreterTratamento: Interpreter_user;
+  interpreteDeCadastros: Interpreter_user;
   estahCadastrando = true;
-  botao = this.cadastrar;
+  nomeBotaoCadastro = 'Cadastrar';
 
-  constructor(private interpreterService: InterpreterService, private rotaAtivada: ActivatedRoute, private roteador: Router, public dialogRef: MatDialogRef<CadastroInterpreterComponent>) {
-    const idEdicao = this.rotaAtivada.snapshot.params['id'];
-    this.interpreterTratamento = new Interpreter_user('', '', '', '', '', 0);
-
-    if (idEdicao){
-      this.estahCadastrando = false;
-      this.interpreterService.pesquisarPorId(idEdicao).subscribe(interpreterRetornado => {
-        this.interpreterTratamento = interpreterRetornado;
-      });
+  constructor(private rotaAtual: ActivatedRoute, private roteador: Router,
+              private usuarioService: InterpreterFirestoreService,) {
+    this.interpreteDeCadastros = new Interpreter_user();
+    const idParaEdicao = this.rotaAtual.snapshot.paramMap.get('id');
+    if (idParaEdicao) {
+      // editando
+      this.usuarioService.pesquisarPorId(idParaEdicao).subscribe(
+          usuarioRetornado => {
+            this.interpreteDeCadastros = usuarioRetornado;
+            this.estahCadastrando = false;
+            this.nomeBotaoCadastro = 'Salvar';
+          }
+      );
+    } else {
+      this.nomeBotaoCadastro = 'Cadastrar';
     }
-    this.botao = this.estahCadastrando ? this.cadastrar: this.cadastrar;
   }
 
-  close(): void {
-    this.dialogRef.close();
-  }
-
-  cadastrar_interpreter(): void {
-    if (this.estahCadastrando) {
-      this.interpreterService.cadastrar_interpreter(this.interpreterTratamento).subscribe(interpreterCadastrado => {
-          this.roteador.navigate(['/listagem-interpreter']);
-        }
+  manter(): void {
+    if (this.estahCadastrando && this.interpreteDeCadastros) {
+      this.usuarioService.inserir(this.interpreteDeCadastros).subscribe(
+      );
+    } else {
+      this.usuarioService.atualizar(this.interpreteDeCadastros).subscribe(
       );
     }
+    this.interpreteDeCadastros = new Interpreter_user();
   }
 
 

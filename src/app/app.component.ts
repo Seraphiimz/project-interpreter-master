@@ -12,12 +12,12 @@ export class AppComponent {
   interpreters_user: Array<Interpreter_user>;
 
   constructor() {
-    this.interpreter_user = new Interpreter_user('','','','','',0);
+    this.interpreter_user = new Interpreter_user();
     this.interpreters_user = new Array<Interpreter_user>();
   }
 
   inserirInterpreter_user(): void {
-    this.interpreter_user = new Interpreter_user('','','','','',0);
+    this.interpreter_user = new Interpreter_user();
     this.interpreters_user.push(this.interpreter_user);
   }
 }

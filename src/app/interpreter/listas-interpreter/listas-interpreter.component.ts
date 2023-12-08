@@ -21,7 +21,6 @@ export class ListasInterpreterComponent {
 
 
   constructor(
-    private interprete_service: InterpreterService,
     private roteador: Router,
     private interpreteService: InterpreterFirestoreService,
     private dialog: MatDialog){
@@ -35,13 +34,13 @@ export class ListasInterpreterComponent {
     }
   }
 
-  pesquisar_interpreter() {
-    this.interprete_service.pesquisar_Matricula_Interpreter(this.matricula_interpreter).subscribe(interpretes => {
-      this.pesquisados_interpreter = interpretes;
-    });
-  }
+  // pesquisar_interpreter() {
+  //   this.interpreteService.pesquisarPorId(this.matricula_interpreter).subscribe(interpretes => {
+  //     this.pesquisados_interpreter = interpretes;
+  //   });
+  // }
   ngOnInit(){
-    this.interprete_service.listas_interpreter().subscribe(interpretesRetornados => {
+    this.interpreteService.listar().subscribe(interpretesRetornados => {
       this.interpretes = interpretesRetornados;
     });
   }

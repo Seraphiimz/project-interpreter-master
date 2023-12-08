@@ -4,17 +4,17 @@
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="interpreterTratamento.nome" placeholder="Digitar seu nome">
+      <input matInput [(ngModel)]="interpreteDeCadastros.nome" placeholder="Digitar seu nome">
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>Matricula</mat-label>
-      <input matInput [(ngModel)]="interpreterTratamento.matricula" placeholder="digitar sua matricula">
+      <input matInput [(ngModel)]="interpreteDeCadastros.matricula" placeholder="digitar sua matricula">
     </mat-form-field></td>
   </tr></table>
   <p>
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
-      <input type="email" matInput [(ngModel)]="interpreterTratamento.email" placeholder="Ex. pat@example.com">
+      <input type="email" matInput [(ngModel)]="interpreteDeCadastros.email" placeholder="Ex. pat@example.com">
     </mat-form-field>
   </p>
   <table class="example-full-width" cellspacing="0"><tr>
@@ -29,7 +29,7 @@
     <td><mat-form-field class="example-full-width">
       <mat-label>Telephone</mat-label>
       <span matPrefix>+55 &nbsp;</span>
-      <input type="tel" matInput [(ngModel)]="interpreterTratamento.telefone" placeholder="ex: 00 0000-0000">
+      <input type="tel" matInput [(ngModel)]="interpreteDeCadastros.telefone" placeholder="ex: 00 0000-0000">
     </mat-form-field></td>
   </tr></table>
   <table class="example-full-width" cellspacing="0"><tr>
@@ -44,4 +44,4 @@
   </tr></table>
 </div>
 
-<button class="cadastr-button" mat-flat-button color="accent" (click)="cadastrar_interpreter()">{{botao}}</button>
+<button class="cadastr-button" mat-flat-button color="accent" (click)="manter()">{{nomeBotaoCadastro}}</button>

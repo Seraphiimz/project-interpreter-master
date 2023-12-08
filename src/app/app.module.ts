@@ -14,6 +14,7 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app.routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {MatDialogModule} from "@angular/material/dialog";
+import {FirestoreModule} from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     PipesModule,
     BrowserAnimationsModule,
     RouterOutlet,
+    FirestoreModule,
     MatDialogModule
   ],
   providers: [],
